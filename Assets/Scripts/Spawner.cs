@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.instance.isLive)
+        if (!GameManager.instance.isLive || !GameManager.instance.isGame)
             return;
 
         timer += Time.deltaTime;
