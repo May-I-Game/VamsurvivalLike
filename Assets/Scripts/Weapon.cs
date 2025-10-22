@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public float speed;
 
     float timer;
-    Player player;
+    PlayerController player;
 
     void Awake()
     {

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
     [Header("# Game Object")]
     public PoolManager pool;
-    public Player player;
+    public PlayerController player;
     public LevelUp uiLevelUp;
     public Result uiResult;
     public GameObject enemyCleaner;
