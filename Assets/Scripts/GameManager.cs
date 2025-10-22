@@ -1,4 +1,7 @@
+using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool isLive;
     public float gameTime;
     public float maxGameTime = 2 * 10f;
+
     [Header("# Player Info")]
     public int playerId;
     public float health;
@@ -17,9 +21,12 @@ public class GameManager : MonoBehaviour
     public int kill;
     public int exp;
     public int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
+
     [Header("# Game Object")]
+    public CinemachineCamera cineCamera;
     public PoolManager pool;
     public PlayerController player;
+    public GameObject playerPrefab;
     public LevelUp uiLevelUp;
     public Result uiResult;
     public GameObject enemyCleaner;
@@ -29,12 +36,32 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        SpawnPlayer();
+    }
+
+    private void SpawnPlayer()
+    {
+        if (playerPrefab != null)
+        {
+            Vector3 randomPos = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0f);
+            GameObject player_object = PhotonNetwork.Instantiate(playerPrefab.name, randomPos, Quaternion.identity);
+
+            player = player_object.GetComponent<PlayerController>();
+            cineCamera.Follow = player.transform;
+            player.gameObject.SetActive(false);
+        }
+    }
+
     public void GameStart(int id)
     {
         playerId = id;
         health = maxHealth;
 
-        player.gameObject.SetActive(true);
+        if (player != null)
+            player.gameObject.SetActive(true);
+
         uiLevelUp.Select(playerId % 2);
         Resume();
 
