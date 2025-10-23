@@ -65,10 +65,16 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         inputVec = value.Get<Vector2>();
     }
 
-    public void Init()
+    [PunRPC]
+    public void InitPlayer(int characterId)
     {
-        speed *= Character.Speed;
-        anim.runtimeAnimatorController = animCon[GameManager.instance.playerId];
+        anim.runtimeAnimatorController = animCon[characterId];
+
+        if (pv.IsMine)
+        {
+            speed *= Character.Speed;
+            transform.GetChild(1).gameObject.SetActive(true); // Arae 활성화
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

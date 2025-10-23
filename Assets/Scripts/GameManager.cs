@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -48,8 +49,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             Vector3 randomPos = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0f);
             GameObject player_object = PhotonNetwork.Instantiate(playerPrefab.name, randomPos, Quaternion.identity);
 
+            PhotonView pv = player_object.GetComponent<PhotonView>();
+            pv.RPC("InitPlayer", RpcTarget.AllBuffered, playerId);
+
             player = player_object.GetComponent<PlayerController>();
-            player.Init();
             cineCamera.Follow = player.transform;
         }
     }
