@@ -202,7 +202,6 @@ GameObject:
   - component: {fileID: 1485995324295114856}
   - component: {fileID: 688567148993601815}
   - component: {fileID: 1239580167473594086}
-  - component: {fileID: 4311372004776547146}
   m_Layer: 5
   m_Name: Login Button
   m_TagString: Untagged
@@ -324,22 +323,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4311372004776547146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2963808853361624031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce0d5f41150f97d43b495bab5f007629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 1ece853f069b8d042a4f1863bdd570b5, type: 2}
-  level: 0
-  weapon: {fileID: 0}
-  gear: {fileID: 0}
 --- !u!1 &4971472032175337116
 GameObject:
   m_ObjectHideFlags: 0

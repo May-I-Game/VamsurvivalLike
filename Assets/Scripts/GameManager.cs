@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
         // 시작 버튼 활성화/비활성화
-        startButton.enabled = allReady;
+        startButton.gameObject.SetActive(allReady);
     }
 
     public void OnStartGameButtonClicked()

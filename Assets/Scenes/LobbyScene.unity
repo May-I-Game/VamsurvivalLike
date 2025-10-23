@@ -902,7 +902,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.5555553
+  orthographic size: 8.888889
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1039,7 +1039,6 @@ MonoBehaviour:
   maxPlayersInputField: {fileID: 460741861}
   roomGrid: {fileID: 1393600276}
   roomItemPrefab: {fileID: 4971472032175337116, guid: c643d4434a925c9459641afe3e1b265c, type: 3}
-  playerPrefab: {fileID: 6895354622190355475, guid: 2e8486c41de05224e99041f3042e1896, type: 3}
 --- !u!4 &572733247
 Transform:
   m_ObjectHideFlags: 0
