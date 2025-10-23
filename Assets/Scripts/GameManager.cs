@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void OnStartGameButtonClicked()
     {
         // 게임 시작했으니 버튼끄기
-        gameObject.SetActive(false);
+        startButton.gameObject.SetActive(false);
 
         // "StartGame_RPC"라는 이름의 함수를 "모두에게"(All) 전송
         GetComponent<PhotonView>().RPC("StartGame_RPC", RpcTarget.All);
@@ -119,9 +119,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         isGame = true;
         health = maxHealth;
-
-        if (player != null)
-            player.gameObject.SetActive(true);
 
         uiLevelUp.Select(playerId % 2);
         hud.SetActive(true);
